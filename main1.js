@@ -42,6 +42,17 @@ window.addEventListener("DOMContentLoaded", () => {
 } )
 
 
+function deleteUser(userId){
+    axios.delete(`https://crudcrud.com/api/29a9226259c14f63a1bb4cf8dd68e5ba/appointmentData/${userId}`)
+    .then((response) => {
+        removeUserFromScreen(userId)
+    })
+    .catch((err) =>{
+        console.log(err)
+    } )
+}
+
+
 
 
 function showuseronscreen (obj){ 
