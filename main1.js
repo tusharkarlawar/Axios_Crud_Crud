@@ -9,7 +9,9 @@ function submitdetails(event){
         description, 
         catalogue 
     }
-    axios.post("https://crudcrud.com/api/29a9226259c14f63a1bb4cf8dd68e5ba/appointmentData", obj)
+
+    //Saving the user Details on Crud Crud...POST//
+    axios.post("https://crudcrud.com/api/ced3f1bdbe534b61a9ecaa8fc2e6cce4/appointmentData", obj)
     .then((response)=> {
         showuseronscreen (response.data)
         console.log(response)
@@ -27,8 +29,9 @@ function submitdetails(event){
     // showuseronscreen (obj) 
 
 } 
+//Get the saved User Details from crudcrud.//
 window.addEventListener("DOMContentLoaded", () => {
-    axios.get("https://crudcrud.com/api/29a9226259c14f63a1bb4cf8dd68e5ba/appointmentData")
+    axios.get("https://crudcrud.com/api/ced3f1bdbe534b61a9ecaa8fc2e6cce4/appointmentData")
     .then((response)=>{
         console.log(response)
 
@@ -42,8 +45,16 @@ window.addEventListener("DOMContentLoaded", () => {
 } )
 
 
+//Update the user Details//
+function editUserDetails(expenses,description,catalogue){
+    document.getElementById('expenses').value=expenses;
+    document.getElementById('description').value=description;
+    document.getElementById('catalogue').value=catalogue;
+}
+
+//Deleting the Appointments//
 function deleteUser(userId){
-    axios.delete(`https://crudcrud.com/api/29a9226259c14f63a1bb4cf8dd68e5ba/appointmentData/${userId}`)
+    axios.delete(`https://crudcrud.com/api/ced3f1bdbe534b61a9ecaa8fc2e6cce4/appointmentData/${userId}`)
     .then((response) => {
         removeUserFromScreen(userId)
     })
