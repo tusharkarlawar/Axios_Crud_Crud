@@ -19,12 +19,27 @@ function submitdetails(event){
         console.log(err)
     })  
     
+
+
     
  
     // localStorage.setItem(obj.description,JSON.stringify(obj)) 
     // showuseronscreen (obj) 
 
 } 
+window.addEventListener("DOMContentLoaded", () => {
+    axios.get("https://crudcrud.com/api/29a9226259c14f63a1bb4cf8dd68e5ba/appointmentData")
+    .then((response)=>{
+        console.log(response)
+
+        for(var i=0; i<response.data.length; i++){
+            showuseronscreen(response.data[i])
+        }
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+} )
 
 
 
